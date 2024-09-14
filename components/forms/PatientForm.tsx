@@ -6,12 +6,12 @@ import { z } from "zod"
 import { Button } from "@/components/ui/button"
 import { Form } from "@/components/ui/form"
 import { Input } from "@/components/ui/input"
-import SubmitButton from "./SubmitButton"
 import { useState } from "react"
 import { UserFormValidation } from "@/lib/validation"
 import { useRouter } from "next/navigation"
 import { createUser } from "@/lib/actions/patient.actions"
 import CustomFormField from "../CustomFormField";
+import SubmitButton from "../SubmitButton";
 
 
 
