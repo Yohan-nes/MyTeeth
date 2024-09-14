@@ -17,11 +17,11 @@ export default function Home() {
           <PatientForm />
           < div className="text-14-regular mt-20 flex justify-between">
             <p className="justify-items-end text-dark-600 cl;text-left">
-              <Link href="/?admin-true" className="text-green-500">
-                Admin
-              </Link>
               © 2024 CarePulse
             </p>
+            <Link href="/?admin-true" className="text-green-500">
+              Admin
+            </Link>
           </div>
         </div>
       </section>
@@ -34,4 +34,4 @@ export default function Home() {
       />
     </div>
   )
-} 
+}
