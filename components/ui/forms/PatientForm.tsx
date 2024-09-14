@@ -6,7 +6,7 @@ import { z } from "zod"
 import { Button } from "@/components/ui/button"
 import { Form } from "@/components/ui/form"
 import { Input } from "@/components/ui/input"
-import CustomFormField from "../CustomFormField"
+import CustomFormField, { FormFieldType } from "../CustomFormField"
 import SubmitButton from "./SubmitButton"
 import { useState } from "react"
 import { UserFormValidation } from "@/lib/validation"
@@ -26,7 +26,7 @@ export enum FormFieldType {
 
 
 
-const PatientForm = () => {
+export const PatientForm = () => {
     const router = useRouter();
     const [isLoading, setIsLoading] = useState(false);
     // 1. Define your form.
@@ -46,7 +46,9 @@ const PatientForm = () => {
         try {
             const userData = { name, email, phone }
             const user = await createUser(userData);
-            if (user) { router.push(`/patients/${user.$id}/register`) }
+            if (user) {
+                router.push(`/patients/${user.$id}/register`)
+            }
         }
         catch (error) {
             console.log(error);
@@ -65,7 +67,7 @@ const PatientForm = () => {
                     name="name"
                     label="Full name"
                     placeholder="John Doe"
-                    iconSrc="/public/assets/icons/user.svg"
+                    iconSrc="/assets/icons/user.svg"
                     iconAlt="user"
                 />
                 <CustomFormField
@@ -74,7 +76,7 @@ const PatientForm = () => {
                     name="email"
                     label="Email"
                     placeholder="johndoe@gmail.com"
-                    iconSrc="/public/assets/icons/email.svg"
+                    iconSrc="/assets/icons/email.svg"
                     iconAlt="email"
                 />
                 <CustomFormField
@@ -82,7 +84,7 @@ const PatientForm = () => {
                     control={form.control}
                     name="phone"
                     label="Phone Number"
-                    placeholder="012-345-6789"
+                    placeholder="(012)345-6789"
                 />
                 <SubmitButton isLoading={isLoading}> Get Started </SubmitButton>
 
@@ -90,4 +92,3 @@ const PatientForm = () => {
         </Form>
     );
 };
-export default PatientForm
