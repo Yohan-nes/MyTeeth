@@ -1,6 +1,5 @@
 "use server";
-import { ID, Query } from "node-appwrite";
-import { InputFile } from "node-appwrite/file"
+import { ID, Query, InputFile } from "node-appwrite";
 
 
 import {
@@ -60,7 +59,7 @@ export const registerPatient = async ({
         let file;
         if (identificationDocument) {
             const inputFile = identificationDocument &&
-                InputFile.fromBuffer(
+                InputFile.fromBlob(
                     identificationDocument?.get('blobFile') as Blob,
                     identificationDocument?.get('fileName') as string,
                 );

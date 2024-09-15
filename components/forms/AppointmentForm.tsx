@@ -122,7 +122,7 @@ export const AppointmentForm = ({
     }
     return (
         <Form {...form}>
-            <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6 flex-1">
+            <form onSubmit={form.handleSubmit(onSubmit)} className="flex-1 space-y-6">
                 {type === "create" && (
 
                     <section className="mb-12 space-y-4">
@@ -140,8 +140,8 @@ export const AppointmentForm = ({
                             label="Doctor"
                             placeholder="Select A Doctor"
                         >
-                            {Doctors.map((doctor, i) => (
-                                <SelectItem key={doctor.name + i} value={doctor.name}>
+                            {Doctors.map((doctor) => (
+                                <SelectItem key={doctor.name} value={doctor.name}>
                                     <div className="flex cursor-pointer items-center gap-2">
                                         <Image
                                             src={doctor.image}

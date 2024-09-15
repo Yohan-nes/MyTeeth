@@ -46,13 +46,13 @@ export const PassKeyModal = () => {
 
     const closeModal = () => {
         setOpen(false);
-        router.push('/');
+        router.push("/");
     };
     const validatePasskey = (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
         e.preventDefault();
         if (passkey === process.env.NEXT_PUBLIC_ADMIN_PASSKEY) {
             const encryptedKey = encryptKey(passkey);
-            localStorage.setItem('accessKey', encryptedKey);
+            localStorage.setItem("accessKey", encryptedKey);
             setOpen(false);
         } else {
             setError('Invalid passkey. Please try again')
@@ -64,7 +64,7 @@ export const PassKeyModal = () => {
         <AlertDialog open={open} onOpenChange={setOpen}>
             <AlertDialogContent className="shad-alert-dialog">
                 <AlertDialogHeader>
-                    <AlertDialogTitle className="flex-start justify-between">Admin Access Verification
+                    <AlertDialogTitle className="flex items-start justify-between">Admin Access Verification
                         <Image
                             src="/assets/icons/close.svg"
                             alt="close"
@@ -75,7 +75,7 @@ export const PassKeyModal = () => {
                         />
                     </AlertDialogTitle>
                     <AlertDialogDescription>
-                        To access the admin, please enter the passcode/
+                        To access the admin, please enter the passcode.
                     </AlertDialogDescription>
                 </AlertDialogHeader>
 
@@ -91,7 +91,7 @@ export const PassKeyModal = () => {
                         </InputOTPGroup>
                     </InputOTP>
 
-                    {error && <p className=" shad-error tex-14-regular flex justify-center">
+                    {error && <p className=" shad-error text-14-regular flex mt-4 justify-center">
                         {error}  </p>}
 
                 </div>

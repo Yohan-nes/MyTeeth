@@ -25,13 +25,18 @@ export const AppointmentModal = ({
     patientId: string;
     userId: string;
     appointment?: Appointment;
+    title: string;
+    description: string;
 }) => {
     const [Open, setOpen] = useState(false);
     return (
         <Dialog open={Open} onOpenChange={setOpen}>
             <DialogTrigger asChild>
-                <Button variant="ghost" className={`capitalize ${type === 'schedule' &&
-                    'text-green-500'}`} > {type}</Button>
+                <Button
+                    variant="ghost"
+                    className={`capitalize ${type === 'schedule' && 'text-green-500'}`}
+                >
+                    {type}</Button>
             </DialogTrigger>
             <DialogContent className="shad dialog sm:max-w-md">
                 <DialogHeader className="mb-4 space-y-3">

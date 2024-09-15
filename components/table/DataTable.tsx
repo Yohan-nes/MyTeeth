@@ -128,5 +128,5 @@ export function DataTable<TData, TValue>({
                 </Button>
             </div>
         </div>
-    )
+    );
 }

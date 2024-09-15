@@ -55,15 +55,13 @@ export const columns: ColumnDef<Appointment>[] = [
             return (
                 <div className="flex items-center gap-3">
                     <Image
-                        src={doctor?.image}
-                        alt={doctor.name}
+                        src={doctor?.image!}
+                        alt="doctor"
                         width={100}
                         height={100}
                         className="size-8"
                     />
-                    <p className="whitespace-nowrap">
-
-                    </p>
+                    <p className="whitespace-nowrap">Dr. {doctor?.name}</p>
                 </div>
             );
         },
@@ -76,23 +74,28 @@ export const columns: ColumnDef<Appointment>[] = [
         header: () => <div className="pl-4">
             Actions
         </div>,
-        cell: ({ row: { original: data } }) => {
+        cell: ({ row }) => {
+            const appointment = row.original;
             return (
                 <div className="flex gap -1">
                     <AppointmentModal
                         type="schedule"
-                        patientId={data.patient.$id}
-                        userId={data.$id}
-                        appointment={data}
+                        patientId={appointment.patient.$id}
+                        userId={appointment.$id}
+                        appointment={appointment}
+                        title="Schedule Appointment"
+                        description="Please confirm the following details to schedule."
                     />
                     <AppointmentModal
                         type="cancel"
-                        patientId={data.patient.$id}
-                        userId={data.$id}
-                        appointment={data}
+                        patientId={appointment.patient.$id}
+                        userId={appointment.$id}
+                        appointment={appointment}
+                        title="Cancel Appointment"
+                        description="Are you sure you want to cancel your appointment?"
                     />
                 </div>
             )
         },
     },
-]
+];
