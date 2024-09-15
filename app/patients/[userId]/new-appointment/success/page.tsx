@@ -39,7 +39,7 @@ const RequestSuccess = async ({ params: { userId }, searchParams }: SearchParamP
                     <p> Requested Appointment Details:</p>
                     <div className="flex-items-center gap-3">
                         <Image
-                            src={doctor?.image}
+                            src={doctor?.image!}
                             alt="doctor"
                             width={100}
                             height={100}
