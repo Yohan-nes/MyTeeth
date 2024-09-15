@@ -3,15 +3,10 @@
 import { zodResolver } from "@hookform/resolvers/zod"
 import { useForm } from "react-hook-form"
 import { z } from "zod"
-import { Button } from "@/components/ui/button"
 import { Form, FormControl } from "@/components/ui/form"
-import { Input } from "@/components/ui/input"
-\\
 import { useState } from "react"
-import { PatientFormValidation, UserFormValidation } from "@/lib/validation"
+import { PatientFormValidation } from "@/lib/validation"
 import { useRouter } from "next/navigation"
-import { createUser } from "@/lib/actions/patient.actions"
-import { FormFieldType } from "./PatientForm"
 import { Doctors, GenderOptions, IdentificationTypes, PatientFormDefaultValues } from "@/constants"
 import Image from "next/image"
 
@@ -20,7 +15,7 @@ import { registerPatient } from "@/lib/actions/patient.actions";
 import { SelectItem } from "../ui/select";
 import { RadioGroup, RadioGroupItem } from "../ui/radio-group";
 import { Label } from "../ui/label";
-import CustomFormField from "../CustomFormField";
+import CustomFormField, { FormFieldType } from "../CustomFormField";
 import SubmitButton from "../SubmitButton";
 
 
@@ -39,9 +34,9 @@ const RegisterForm = ({ user }: { user: User }) => {
             ...PatientFormDefaultValues,
             name: "",
             email: "",
-            phone: "",
+            phone: ""
         },
-    })
+    });
 
     // 2. Define a submit handler.
     const onSubmit = async (values: z.infer<typeof PatientFormValidation>) => {
@@ -49,7 +44,7 @@ const RegisterForm = ({ user }: { user: User }) => {
 
         let formData;
 
-        if (values.identificationDocument && values.identificationDocument.length > 0) {
+        if (values.identificationDocument && values.identificationDocument?.length > 0) {
             const blobFile = new Blob([values.identificationDocument[0]], {
                 type: values.identificationDocument[0].type,
             })
@@ -79,6 +74,7 @@ const RegisterForm = ({ user }: { user: User }) => {
         catch (error) {
             console.log(error);
         }
+        setIsLoading(false);
     };
     return (
         <Form {...form}>
