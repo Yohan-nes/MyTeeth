@@ -6,7 +6,7 @@ import Image from 'next/image'
 import Link from 'next/link'
 import React from 'react'
 
-const Admin = async () => {
+const Adminpage = async () => {
     const appointments = await getRecentAppointmentList()
     return (
         <div className="mx-auto flex max-w-7xl flex-col space-y-14">
@@ -25,7 +25,7 @@ const Admin = async () => {
 
             <main className="admin-main">
                 <section className="w-full space-y-4">
-                    <h1 className="header"> Welcome
+                    <h1 className="header"> Welcome 👋
                     </h1>
                     <p className="text-dark-700" />
                 </section>
@@ -58,4 +58,4 @@ const Admin = async () => {
     )
 }
 
-export default Admin
+export default Adminpage;

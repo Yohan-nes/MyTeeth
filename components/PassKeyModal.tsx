@@ -42,7 +42,12 @@ export const PassKeyModal = () => {
                 setOpen(true)
             }
         }
-    }, [encryptedKey])
+    }, [encryptedKey]);
+
+    const closeModal = () => {
+        setOpen(false);
+        router.push('/');
+    };
     const validatePasskey = (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
         e.preventDefault();
         if (passkey === process.env.NEXT_PUBLIC_ADMIN_PASSKEY) {
@@ -53,11 +58,7 @@ export const PassKeyModal = () => {
             setError('Invalid passkey. Please try again')
         }
 
-    }
-    const closeModal = () => {
-        setOpen(false);
-        router.push('/');
-    }
+    };
 
     return (
         <AlertDialog open={open} onOpenChange={setOpen}>

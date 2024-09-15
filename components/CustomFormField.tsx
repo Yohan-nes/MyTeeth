@@ -58,7 +58,7 @@ const RenderInput = ({ field, props }: { field: any; props: CustomProps }) => {
                             src={props.iconSrc}
                             height={24}
                             width={24}
-                            alt={props.iconAlt || 'icon'}
+                            alt={props.iconAlt || "icon"}
                             className="ml-2" />
                     )}
                     <FormControl>
@@ -155,7 +155,7 @@ const RenderInput = ({ field, props }: { field: any; props: CustomProps }) => {
     }
 }
 
-export const CustomFormField = (props: CustomProps) => {
+const CustomFormField = (props: CustomProps) => {
     const { control, name, label } = props;
     return (
         <FormField

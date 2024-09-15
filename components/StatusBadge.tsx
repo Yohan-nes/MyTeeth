@@ -4,7 +4,7 @@ import React from 'react'
 import { StatusIcon } from '@/constants'
 
 
-const StatusBadge = ({ status }: { status: Status }) => {
+export const StatusBadge = ({ status }: { status: Status }) => {
     return (
         <div className={clsx('status-badge', {
             'bg-green-600': status === 'scheduled',
@@ -27,5 +27,3 @@ const StatusBadge = ({ status }: { status: Status }) => {
         </div>
     );
 };
-
-export default StatusBadge

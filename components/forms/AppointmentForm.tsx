@@ -21,7 +21,6 @@ import "react-datepicker/dist/react-datepicker.css";
 import CustomFormField, { FormFieldType } from "../CustomFormField";
 import SubmitButton from "../SubmitButton";
 import { Form } from "../ui/form";
-import { type } from "os";
 
 
 
@@ -34,7 +33,7 @@ export const AppointmentForm = ({
     patientId: string;
     type: "create" | "cancel" | "schedule";
     appointment?: Appointment;
-    setOpen: (open: boolean) => void;
+    setOpen?: Dispatch<SetStateAction<boolean>>;
 }) => {
     const router = useRouter();
     const [isLoading, setIsLoading] = useState(false);
@@ -80,11 +79,11 @@ export const AppointmentForm = ({
                 };
                 const newAppointment = await createAppointment(appointment);
 
-                if (appointment) {
+                if (newAppointment) {
                     form.reset();
                     router.push(`/patients/${userId}/new-appointment/success?appointmentId=$
-                    {appointment.$id}`)
-                };
+                    {appointment.$id}`);
+                }
             } else {
                 const appointmentToUpdate = {
                     userId,
@@ -114,9 +113,6 @@ export const AppointmentForm = ({
     switch (type) {
         case 'cancel':
             buttonLabel = 'Cancel Appointment';
-            break;
-        case 'create':
-            buttonLabel = 'Create Appointment';
             break;
         case 'schedule':
             buttonLabel = 'Schedule Appointment';
