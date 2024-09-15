@@ -37,7 +37,7 @@ Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/bui
 
 
 
-Key Features
+## Key Features
 Patient Registration: Users can easily sign up and create a personal profile as a patient.
 
 Appointment Scheduling: Patients have the flexibility to schedule appointments with doctors and can book multiple appointments as needed.
@@ -57,3 +57,6 @@ File Upload via Appwrite Storage: Users can securely upload and store files usin
 Performance Monitoring with Sentry: Sentry integration helps monitor application performance and detect any potential issues.
 
 Modular Code Architecture: Designed with a focus on clean, reusable, and maintainable code.
+
+
+## The domain for this application: https://my-teeth-mv2m.vercel.app/
