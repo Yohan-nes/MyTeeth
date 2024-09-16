@@ -62,7 +62,7 @@ export const PassKeyModal = () => {
 
     return (
         <AlertDialog open={open} onOpenChange={setOpen}>
-            <AlertDialogContent className="shad-alert-dialog">
+            <AlertDialogContent className="shad-alert-dialog relative">
                 <AlertDialogHeader>
                     <AlertDialogTitle className="flex items-start justify-between">Admin Access Verification
                         <Image
@@ -71,7 +71,7 @@ export const PassKeyModal = () => {
                             width={20}
                             height={20}
                             onClick={() => closeModal()}
-                            className="cursor-pointer"
+                            className="cursor-pointer absolute top-4 right-4 sm:top-2 sm:right-2"
                         />
                     </AlertDialogTitle>
                     <AlertDialogDescription>
