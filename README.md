@@ -59,4 +59,4 @@ Performance Monitoring with Sentry: Sentry integration helps monitor application
 Modular Code Architecture: Designed with a focus on clean, reusable, and maintainable code.
 
 
-## The domain for this application: https://my-teeth-mv2m.vercel.app/
+## The domain for this application: https: https://my-teeth.vercel.app/
